@@ -9,38 +9,45 @@
 	<link th:href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}" rel="stylesheet" />
 </head>
 
-	<body>
-		<div align="center">
-			<h1 style="margin:10px"> Previsão do tempo</h1>
+		
+<body>
+	<div class="panel panel-default">
+        <div align="center">
+			<h1 style="margin:10px"><b> PREVISÃO DO TEMPO</b></h1>
 		</div>
-		<div class="panel panel-default" style="margin: 10px;background-color: #F5F5F5">
-			<div class="panel-heading" align="center" >
-				<h3 class="panel-display-4">São Paulo - SP</h3>
-			</div>
-			<div class="panel-body">
-				<table class="table">
-					<thead>
-						<tr style="color: #4169E1">
-							<th>Data</th>
-							<th>Temp.Mín</th>
-							<th>Temp.Máx</th>
-							<th>Umidade</th>
-							<th>Descrição</th>
-						</tr>
-					</thead>
-					<tbody>
-					 	<tr th:each="prev:${previsoesTemp}">
+            <div class="panel-heading" align="center" >
+				<h3 class="panel-display-4"><b>São Paulo - SP</b></h3>
+			 </div>
+		  <div class="panel-body">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Data</th>
+                        <th>Dia Semana</th>
+						<th>Temp.Min</th>
+						<th>Temp.Max</th>
+						<th>Umidade relativa</th>
+						<th>Descrição</th>
+                        <th>Latitude</th>
+                        <th>Longitude</th>
+                        
+					</tr>
+					
+				</thead>
+				<tbody>
+					<tr th:each="prev:${previsoesTemp}">
+					 		<td th:text="${prev.data}"></td>
 							<td th:text="${prev.semana}"></td>
 							<td th:text="${prev.tempMin} + ' °CC'"></td>
 							<td th:text="${prev.tempMax} + ' °CC'"></td>
 							<td th:text="${prev.umi} + '%'"></td>
 							<td th:text="${prev.descricao}"></td>
-						</tr>
-					
-					</tbody>
-				</table>
-			</div>
+							<td th:text="${prev.la}"></td>
+							<td th:text="${prev.lo}"></td>	
+				</tbody>
+			</table>
 		</div>
-	</body>
+	</div>
+</body>
 
 </html>
